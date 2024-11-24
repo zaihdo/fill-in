@@ -9,16 +9,16 @@ import { baseURL, style, meta, og, schema, social } from "@/once-ui/resources/co
 
 import { Background, Flex } from '@/once-ui/components'
 
-import { Inter } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import { Roboto_Mono } from 'next/font/google';
 
-const primary = Inter({
+const primary = Outfit({
 	variable: '--font-primary',
 	subsets: ['latin'],
 	display: 'swap',
 })
 
-const code = Roboto_Mono({
+const code = Outfit({
 	variable: '--font-code',
 	subsets: ['latin'],
 	display: 'swap',
@@ -86,10 +86,15 @@ export default function RootLayout({
 		<Flex
 			as="html" lang="en"
 			fillHeight background="page"
-			data-neutral={style.neutral} data-brand={style.brand} data-accent={style.accent}
-			data-border={style.border} data-theme={style.theme}
-			data-solid={style.solid} data-solid-style={style.solidStyle}
-			data-surface={style.surface} data-transition={style.transition}
+			data-theme="light"
+			data-brand="custom"
+			data-accent="custom"
+			data-neutral="custom"
+			data-border="playful"
+			data-solid="contrast"
+			data-solid-style="flat"
+			data-surface="filled"
+			data-transition="all"
 			data-scaling={style.scaling}
 			className={classNames(
 				primary.variable, code.variable,

@@ -2,8 +2,9 @@
 
 import React from 'react';
 
-import { Heading, Text, Flex, Button, Grid, Icon, InlineCode, Logo, LetterFx, Arrow } from '@/once-ui/components';
+import { Heading, Text, Flex, Button, Grid, Icon, LetterFx, Arrow, IconButton} from '@/once-ui/components';
 import Link from 'next/link';
+import { Header } from '@/once-ui/components/Header';
 
 export default function Home() {
 	const links = [
@@ -26,92 +27,141 @@ export default function Home() {
 
 	return (
 		<Flex
-			fillWidth paddingTop="l" paddingX="l"
+			fillWidth paddingTop="xs" paddingX="xs"
 			direction="column" alignItems="center" flex={1}>
 			<Flex
 				position="relative"
 				as="section" overflow="hidden"
-				fillWidth minHeight="0" maxWidth={68}
+				fillWidth minHeight="0" maxWidth={100}
 				direction="column" alignItems="center" flex={1}>
 				<Flex
 					as="main"
 					direction="column" justifyContent="center"
-					fillWidth fillHeight padding="l" gap="l">
+					fillWidth fillHeight padding="s" gap="m">
+						<Header authenticated={false}/>
 					<Flex
 						mobileDirection="column"
-						fillWidth gap="24">
+						fillWidth gap="0">
 						<Flex
 							position="relative"
-							flex={2} paddingTop="56" paddingX="xl">
-							<Logo size="xl" icon={false} style={{zIndex: '1'}} href="https://once-ui.com"/>
-						</Flex>
-						<Flex
-							position="relative"
-							flex={4} gap="24" marginBottom="104"
+							flex={2} gap="24" marginBottom="104"
+							justifyContent='center'
+							alignItems='center'
 							direction="column">
-							<InlineCode
+							{/* <InlineCode
 								className="shadow-m"
 								style={{
 									width: 'fit-content',
 									padding: 'var(--static-space-8) var(--static-space-16)',
 									backdropFilter: 'blur(var(--static-space-1))'}}>
 								Start by editing <span className="brand-on-background-medium">app/page.tsx</span>
-							</InlineCode>
+							</InlineCode> */}
 							<Heading
+								align='center'
+								paddingTop='32'
+								marginTop='32'
 								wrap="balance"
-								variant="display-strong-s">
+								variant="display-default-xl">
 								<span className="font-code">
-									<LetterFx
-										trigger="instant">
-										Helping designers code and developers design
-									</LetterFx>
+								<LetterFx
+									trigger="instant">
+									Palestinians in Gaza need 
+								</LetterFx>
+								</span>
+								<br></br>
+								<span>
+								<LetterFx
+									trigger="instant">
+										your help
+								</LetterFx>
 								</span>
 							</Heading>
+							
+							<Heading
+								align='center'
+								paddingTop='32'
+								marginTop='32'
+								wrap="balance"
+								variant="body-default-xl"
+								onBackground='neutral-weak'>
+								<span className="font-code">
+								We are here to help you to reach the most urgent cases of Palestinians living in Gaza to give them a chance to have some help by your ♥️ donations
+								</span>
+							</Heading>
+							<Heading
+								align='center'
+								wrap="balance"
+								variant="body-strong-xl">
+								<span className="font-code">
+								Read their stories . Donate . and Share ...
+								</span>
+							</Heading>
+							
 							<Button
+								size="l"
 								id="readDocs"
 								href="https://once-ui.com/docs"
-								variant="secondary">
-								<Flex alignItems="center">
-									Read docs
-									<Arrow trigger="#readDocs"/>
-								</Flex>
+								variant="custom-primary"
+								label="Donate Now"
+								style={{ borderRadius: 32}}>
 							</Button>
 						</Flex>
 					</Flex>
 					<Grid
-						radius="l"
-						border="neutral-medium"
+						border="accent-strong"
 						borderStyle="solid-1"
-						columns="repeat(3, 1fr)"
-						tabletColumns="1col"
-						mobileColumns="1col"
-						fillWidth>
-						{links.map((link) => (
-							<Link
-								target="_blank"
-								style={{ padding: 'var(--responsive-space-l)' }}
-								key={link.href}
-								href={link.href}>
-								<Flex
-									fillWidth paddingY="8" gap="8"
-									direction="column">
-									<Flex
-										fillWidth gap="12"
-										alignItems="center">
-										<Text
-											variant="body-strong-m" onBackground="neutral-strong">
-											{link.title}
-										</Text>
-										<Icon size="s" name="arrowUpRight" />
-									</Flex>
-									<Text
-										variant="body-default-s" onBackground="neutral-weak">
-										{link.description}
-									</Text>
-								</Flex>
-							</Link>
-						))}
-					</Grid>
+						columns="repeat(1, 1fr)"
+						gap="24"
+						padding="24"
+						fillWidth
+						radius="xl"
+						background="accent-strong"
+						>
+							<Flex 
+								alignItems='center'
+								justifyContent='center'
+								padding='20'
+								style={{flexDirection: 'column'}}
+								>
+								<img src="/images/final.svg" width={'200'} height={'100'}/>
+								<Heading
+									align='center'
+									wrap="balance"
+									variant="body-default-l"
+									padding='20'
+									>
+									<span className="font-code">
+									Join us on a mission to bring back the Ansar project
+									</span>
+								</Heading>
+							<Flex gap='8' padding='4'>
+							<IconButton
+								// onClick={k}
+								icon="instagram"
+								size="m"
+								tooltip="Tooltip"
+								tooltipPosition="top"
+								variant="primary"
+							/>
+							<IconButton
+								// onClick={k}
+								icon="tiktok"
+								size="m"
+								tooltip="Tooltip"
+								tooltipPosition="top"
+								variant="primary"
+							/>
+							<IconButton
+								// onClick={k}
+								icon="youtube"
+								size="m"
+								tooltip="Tooltip"
+								tooltipPosition="top"
+								variant="primary"
+							/>
+							</Flex>
+							</Flex>
+						</Grid>
 				</Flex>
 			</Flex>
 			<Flex

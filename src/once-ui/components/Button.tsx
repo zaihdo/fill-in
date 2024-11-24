@@ -7,9 +7,10 @@ import { Spinner, Icon } from '.';
 import styles from './Button.module.scss';
 
 interface CommonProps {
-    variant?: 'primary' | 'secondary' | 'tertiary' | 'danger';
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'custom-primary';
     size?: 's' | 'm' | 'l';
     label?: string;
+    labelExists?: boolean
     prefixIcon?: string;
     suffixIcon?: string;
     loading?: boolean;
@@ -29,6 +30,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
     variant = 'primary',
     size = 'm',
     label,
+    labelExists,
     children,
     prefixIcon,
     suffixIcon,
@@ -46,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
         <>
             {prefixIcon && !loading && <Icon name={prefixIcon} size={iconSize} />}
             {loading && <Spinner size={size} />}
-            <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label || children}</div>
+            {label && <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label || children}</div>}
             {suffixIcon && <Icon name={suffixIcon} size={iconSize} />}
         </>
     );
